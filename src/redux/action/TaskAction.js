@@ -2,13 +2,13 @@ import axios from "axios";
 import * as Types from "../types/Types";
 
 export const getTasksAction = () => (dispatch) => {
-  axios.get("https://fa-todo-crud.herokuapp.com/todo").then((response) => {
+  axios.get("https://fi-todo-crud.herokuapp.com/todo").then((response) => {
     dispatch({ type: Types.GET_TASKS, payload: response.data.result });
   });
 };
 
 export const getTaskDetailAction = (id) => (dispatch) => {
-    axios.get(`https://fa-todo-crud.herokuapp.com/todo/${id}`).then((response) => {
+    axios.get(`https://fi-todo-crud.herokuapp.com/todo/${id}`).then((response) => {
         dispatch({ type: Types.GET_TASK_DETAIL, payload: response.data.result});
       });
 };
@@ -24,7 +24,7 @@ export const storeTaskAction = (taskItem) => (dispatch) => {
     return false;
   }
 
-  axios.post("https://fa-todo-crud.herokuapp.com/todo", taskItem).then((response) => {
+  axios.post("https://fi-todo-crud.herokuapp.com/todo", taskItem).then((response) => {
       dispatch({ type: Types.ADD_TASK, payload: taskItem });
       dispatch(getTasksAction());
       alert('Task Added Successfully')
@@ -41,7 +41,7 @@ export const updateTaskAction = (taskItem, id) => (dispatch) =>{
     alert("Please give a priority !");
     return false;
   }
-    axios.put(`https://fa-todo-crud.herokuapp.com/todo/${id}`,taskItem)
+    axios.put(`https://fi-todo-crud.herokuapp.com/todo/${id}`,taskItem)
       .then((response) => {
           if (response.status === 200) {
               alert('Task Updated !')
