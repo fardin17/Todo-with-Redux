@@ -62,7 +62,7 @@ export const updateTaskAction = (taskItem, id) => (dispatch) =>{
 
 export const deleteTaskAction = (id) => (dispatch) => {
   console.log("Deleted ID: "+ id)
-  axios.delete(`https://f-todo-crud.herokuapp.com/todo/${id}`).then((response) => {
+  axios.delete(`https://fi-todo-crud.herokuapp.com/todo/${id}`).then((response) => {
     
       if (response.status === 200) {
           alert("Task Deleted");
